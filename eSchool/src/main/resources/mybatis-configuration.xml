@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="edu.onlineSchool.eSchool.model.Pupils" alias="Pupils"/>
+        <typeAlias type="edu.onlineSchool.eSchool.model.AppUser" alias="AppUser"/>
+
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/eschool"/>
+                <property name="username" value="root"/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="edu/onlineSchool/eSchool/repo/pupilMapper.xml"/>
+        <mapper resource="edu/onlineSchool/eSchool/repo/appUserMapper.xml"/>
+    </mappers>
+</configuration>

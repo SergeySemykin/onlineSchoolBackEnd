@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.onlineSchool.eSchool.repo.PupilsMapper">
+
+    <resultMap id="result" type="Pupils">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="patronymic" column="patronymic"/>
+        <result property="grade" column="grade"/>
+        <result property="performance" column="performance"/>
+    </resultMap>
+
+    <select id="getAll" resultType="Pupils" resultMap="result">
+
+        SELECT * FROM Pupils
+
+    </select>
+
+    <insert id="addPupil" parameterType="Pupils" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO Pupils(name,surname,patronymic,grade,performance)
+        VALUES (#{name},#{surname},#{patronymic},#{grade},#{performance})
+    </insert>
+
+    <delete id="deletePupil" parameterType="int">
+        DELETE FROM Pupils WHERE id=#{id}
+    </delete>
+</mapper>
